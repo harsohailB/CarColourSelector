@@ -4,8 +4,7 @@ import dash_html_components as html
 
 import numpy as np
 import plotly.graph_objects as go
-import urllib.request
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 
 external_stylesheets = [{
     'href': 'https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800,900&display=swap',
