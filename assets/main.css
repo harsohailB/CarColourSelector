@@ -3,36 +3,76 @@ body{
     margin-top: 0px;
 }
 
-h1{
-    margin-top: 0px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+#_dash-app-content{
+    margin-top: 0;
+    position: relative;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    height: 2em;
-    background-color: #1b262c;
+    height: 100%;
 }
 
-.header {
-    position: relative;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    vertical-align: middle;
+.header{
+    padding: 0;
+    margin-top: 0;
+    position: relative;  
     width: 100%;
-    font-family: 'Raleway', sans-serif;
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+.header-h1{
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    left: 5%;
+    width: max-content;
+    font-weight: 'black';
+    font-family: 'Montserrat', sans-serif;
+    color: #666666;
+}
+
+.header-h2{
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    left: 60%;
+    width: max-content;
+    font-size: medium;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;  
+    color: #666666;
+}
+
+.customize-car-title{
+    position: relative;
+    text-align: center;
+}
+
+.nav{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#dropdown-colours{
+    width: 150px;
+}
+
+#dropdown-colours-interior{
+    width: 150px;
+}
+
+#dropdown-model{
+    width: 150px;
 }
 
 #mygraph{
-    float: left;
-}
-
-.app-controls-block{
-    display: inline-block;
-    margin-left: 50px;
-    width: 200px;
-    font-family: 'Raleway', sans-serif;
-}
-
-#dropdown-colours{
-    width: 200px;
+    position: relative;
+    margin-top: 20px;
+    /* needs to be made compatible with all resolutions */
+    left: 30%;
 }

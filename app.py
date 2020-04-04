@@ -8,7 +8,7 @@ import urllib.request
 from dash.dependencies import Input, Output
 
 external_stylesheets = [{
-    'href': 'https://fonts.googleapis.com/css?family=Raleway:400,700,800&display=swap',
+    'href': 'https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800,900&display=swap',
     'rel': 'stylesheet',
 }]
 
@@ -52,32 +52,43 @@ I, J, K = faces.T
 app = dash.Dash()
 app.title = 'Car Colour Selector'
 app.layout = html.Div([
-    html.Div(
+    html.Header(
         className = 'header',
         children=[
             html.H1(
-                'CADA Car Colour Selector'
+                className = 'header-h1',
+                children='CADA Car Colour Selector'
+            ),
+
+            html.H2(
+                className = 'header-h2',
+                children='Designed by: Harsohail, Ryan, Gary'
             )
         ]
     ),
 
-    
-    dcc.Graph(
-        id='mygraph'
-    ),
-
     html.Div(
-        title='select style for molecule representation',
-        className="app-controls-block",
-        id='car-colour',
+        className = 'customize-car-title',
         children=[
             html.P(
-                'Colour Palette',
-                style={
-                    'font-weight': 'bold',
-                    'margin-bottom': '10px',
-                }
+                'Customize Your Car'
+            )
+        ]
+    ),
+
+    html.Nav(
+        className = 'nav',
+        children=[
+            dcc.Dropdown(
+                id='dropdown-model',
+                options=[
+                    {'label': 'Lambo', 'value': 'lambo'},
+                    {'label': 'Audi', 'value': 'audi'},
+                    {'label': 'Merc', 'value': 'merc'},
+                ],
+                value='lambo',
             ),
+
             dcc.Dropdown(
                 id='dropdown-colours',
                 options=[
@@ -86,8 +97,22 @@ app.layout = html.Div([
                     {'label': 'Blue', 'value': 'blue'},
                 ],
                 value='red',
+            ),
+
+            dcc.Dropdown(
+                id='dropdown-colours-interior',
+                options=[
+                    {'label': 'Red', 'value': 'red'},
+                    {'label': 'Green', 'value': 'green'},
+                    {'label': 'Blue', 'value': 'blue'},
+                ],
+                value='red',
             )
-        ],
+        ]
+    ),
+
+    dcc.Graph(
+        id='mygraph'
     )
 ])
 
@@ -117,11 +142,11 @@ def update_graph(dropdown_val):
                                    y=200,
                                    z=150))
 
-    pl_mygray = [[0.0, 'rgb(255, 0, 0)'],
+    pl_mygray = [[0.0, 'rgb(255, 255, 255)'],
                  [0.25, 'rgb(255, 0, 0)'],
-                 [0.5, 'rgb(255, 0, 0)'],
+                 [0.5, 'rgb(255, 255, 255)'],
                  [0.75, 'rgb(255, 0, 0)'],
-                 [1.0, 'rgb(255, 0, 0)'],
+                 [1.0, 'rgb(255, 255, 255)'],
                  ]
 
     if dropdown_val == 'red':
