@@ -12,14 +12,12 @@ external_stylesheets = [{
     'rel': 'stylesheet',
 }]
 
-req = urllib.request.Request('https://raw.githubusercontent.com/empet/Datasets/master/car.obj')
-response = urllib.request.urlopen(req)
-vantage = response.read().decode('utf-8')
-
-with open('lambo.obj', 'r') as obj:
+with open('obj/lambo.obj', 'r') as obj:
     lambo = obj.read()
-with open('audi.obj', 'r') as obj:
+with open('obj/audi.obj', 'r') as obj:
     audi = obj.read()
+with open('obj/vantage.obj', 'r') as obj:
+    vantage = obj.read()
 
 
 def obj_data_to_mesh3d(odata):
