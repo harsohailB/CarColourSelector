@@ -7,12 +7,15 @@ import plotly.graph_objects as go
 import urllib.request
 from dash.dependencies import Input, Output
 
+external_stylesheets = [{
+    'href': 'https://fonts.googleapis.com/css?family=Raleway:400,700,800&display=swap',
+    'rel': 'stylesheet',
+}]
+
 req = urllib.request.Request('https://raw.githubusercontent.com/empet/Datasets/master/car.obj')
 
 response = urllib.request.urlopen(req)
 obj_data = response.read().decode('utf-8')
-
-
 
 def obj_data_to_mesh3d(odata):
     # odata is the string read from an obj file
@@ -47,18 +50,32 @@ x, y, z = vertices[:, :3].T
 I, J, K = faces.T
 
 app = dash.Dash()
+app.title = 'Car Colour Selector'
 app.layout = html.Div([
-    dcc.Graph(id='mygraph'),
+    html.Div(
+        className = 'header',
+        children=[
+            html.H1(
+                'CADA Car Colour Selector'
+            )
+        ]
+    ),
+
+    
+    dcc.Graph(
+        id='mygraph'
+    ),
+
     html.Div(
         title='select style for molecule representation',
         className="app-controls-block",
         id='car-colour',
         children=[
             html.P(
-                'Car Colour',
+                'Colour Palette',
                 style={
                     'font-weight': 'bold',
-                    'margin-bottom': '10px'
+                    'margin-bottom': '10px',
                 }
             ),
             dcc.Dropdown(
@@ -68,7 +85,7 @@ app.layout = html.Div([
                     {'label': 'Green', 'value': 'green'},
                     {'label': 'Blue', 'value': 'blue'},
                 ],
-                value='red'
+                value='red',
             )
         ],
     )
@@ -133,10 +150,10 @@ def update_graph(dropdown_val):
     mesh.update(intensity=z, colorscale=pl_mygray)
     mesh.pop('vertexcolor')
 
-    layout = go.Layout(title='Mesh3d from a Wavefront obj file',
+    layout = go.Layout(title='',
                        font=dict(size=14, color='black'),
-                       width=900,
-                       height=800,
+                       width=800,
+                       height=600,
                        scene=dict(xaxis=dict(visible=False),
                                   yaxis=dict(visible=False),
                                   zaxis=dict(visible=False),
@@ -146,7 +163,6 @@ def update_graph(dropdown_val):
                                                    ),
                                   camera=dict(eye=dict(x=1, y=1., z=0.5)),
                                   ),
-                       paper_bgcolor='rgb(235,235,235)',
                        margin=dict(t=175))
 
     return {'data': [mesh], 'layout': layout}
