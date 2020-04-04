@@ -16,6 +16,8 @@ body{
     padding: 0;
     margin-top: 0;
     position: relative;  
+    display: flex;
+    flex-direction: row;
     width: 100%;
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
@@ -24,9 +26,7 @@ body{
 
 .header-h1{
     position: relative;
-    display: inline-block;
-    text-align: left;
-    left: 5%;
+    left: 10%;
     width: max-content;
     font-weight: 'black';
     font-family: 'Montserrat', sans-serif;
@@ -34,10 +34,9 @@ body{
 }
 
 .header-h2{
-    position: relative;
-    display: inline-block;
-    text-align: left;
-    left: 60%;
+    position: absolute;
+    right: 10%;
+    top: 20%;
     width: max-content;
     font-size: medium;
     font-weight: 300;
@@ -46,28 +45,54 @@ body{
 }
 
 .customize-car-title{
+    margin-top: 20px;
     position: relative;
     text-align: center;
+    font-size: medium;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;  
+    color: #666666;
 }
 
-.nav{
+.camera-nav{
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-size: medium;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;   
+}
+
+.customization-nav{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: medium;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;  
 }
 
 
 #dropdown-colours{
     width: 150px;
+    padding: 5px;
 }
 
 #dropdown-colours-interior{
     width: 150px;
+    padding: 5px;
 }
 
 #dropdown-model{
     width: 150px;
+    padding: 5px;
+}
+
+#dropdown-view{
+    width: 150px;
+    padding: 5px; 
 }
 
 #mygraph{

@@ -62,7 +62,7 @@ app.layout = html.Div([
 
             html.H2(
                 className = 'header-h2',
-                children='Designed by: Harsohail, Ryan, Gary'
+                children='Designed by: Harsohail, Ryan, Gary, Sean'
             )
         ]
     ),
@@ -77,8 +77,31 @@ app.layout = html.Div([
     ),
 
     html.Nav(
-        className = 'nav',
+        className = 'camera-nav',
         children=[
+            html.P(
+                'Camera View:'
+            ),
+
+            dcc.Dropdown(
+                id='dropdown-view',
+                options=[
+                    {'label': 'Exterior', 'value': 'exterior'},
+                    {'label': 'Interior', 'value': 'interior'},
+                ],
+                value='exterior',
+            )
+        ]
+    ),
+
+    html.Nav(
+        className = 'customization-nav',
+        children=[
+
+            html.P(
+                'Model:'
+            ),
+
             dcc.Dropdown(
                 id='dropdown-model',
                 options=[
@@ -89,6 +112,10 @@ app.layout = html.Div([
                 value='lambo',
             ),
 
+            html.P(
+                'Exterior Colour:'
+            ),
+
             dcc.Dropdown(
                 id='dropdown-colours',
                 options=[
@@ -97,6 +124,10 @@ app.layout = html.Div([
                     {'label': 'Blue', 'value': 'blue'},
                 ],
                 value='red',
+            ),
+
+            html.P(
+                'Interior Colour'
             ),
 
             dcc.Dropdown(
