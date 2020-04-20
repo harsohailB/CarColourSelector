@@ -199,7 +199,9 @@ def update_graph(dropdown_exterior_colour, camera_val, model_val, dropdown_inter
         j=J,
         k=K,
         name='',
-        showscale=False)
+        showscale=False,
+        hoverinfo='skip'
+    )
 
     mesh.update(lighting=dict(ambient=0.18,
                               diffuse=1,
